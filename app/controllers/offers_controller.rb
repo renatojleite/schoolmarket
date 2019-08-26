@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only [:show, :update]
+  before_action :set_offer, only: [:show, :update]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @offers = Offer.all
@@ -16,7 +17,6 @@ class OffersController < ApplicationController
   end
 
   def create
-
     offer = Offer.create(offer_params)
     redirect_to offer_path(offer)
 
