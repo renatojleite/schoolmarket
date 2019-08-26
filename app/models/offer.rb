@@ -4,7 +4,7 @@ class Offer < ApplicationRecord
   enum category: %i[first_grade second_grade third_grade fourth_grade fifth_grade
                     sixth_grade seventh_grade eight_grade hoodies pants t_shirts shorts]
   validates :category, presence: true
-  validates :buyer_must_be_different_from_seller
+  validate :buyer_must_be_different_from_seller
 
   private
 
