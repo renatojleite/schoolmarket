@@ -6,11 +6,11 @@ class Offer < ApplicationRecord
   validates :category, presence: true
   validates :buyer_must_be_different_from_seller
 
-private
+  private
 
   def buyer_must_be_different_from_seller
     if buyer == seller
       errors.add(:buyer, "must be different from seller")
     end
-  end 
+  end
 end

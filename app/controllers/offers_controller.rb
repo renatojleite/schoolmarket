@@ -1,12 +1,12 @@
 class OffersController < ApplicationController
-  before_action :set_offe, only [:show, :update]
+  before_action :set_offer, only [:show, :update]
 
   def index
     @offers = Offer.all
   end
 
   def new
-    @offer = Ofer.new
+    @offer = Offer.new
   end
 
   def show
