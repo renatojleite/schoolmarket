@@ -4,9 +4,7 @@ class CreateOffers < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.integer :price
-      t.references :buyer, foreign_key: { to_table: :users }
-      t.references :seller, foreign_key: { to_table: :users }
-
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

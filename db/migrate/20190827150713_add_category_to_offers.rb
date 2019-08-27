@@ -1,5 +1,5 @@
 class AddCategoryToOffers < ActiveRecord::Migration[5.2]
   def change
-    add_column :offers, :category, :integer
+    add_reference :offers, :category, foreign_key: true
   end
 end
