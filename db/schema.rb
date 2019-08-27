@@ -25,15 +25,12 @@ ActiveRecord::Schema.define(version: 2019_08_27_153618) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.bigint "buyer_id"
-    t.bigint "seller_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category"
     t.bigint "category_id"
-    t.index ["buyer_id"], name: "index_offers_on_buyer_id"
     t.index ["category_id"], name: "index_offers_on_category_id"
-    t.index ["seller_id"], name: "index_offers_on_seller_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -58,8 +55,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_153618) do
   end
 
   add_foreign_key "offers", "categories"
-  add_foreign_key "offers", "users", column: "buyer_id"
-  add_foreign_key "offers", "users", column: "seller_id"
+  add_foreign_key "offers", "users"
   add_foreign_key "transactions", "offers"
   add_foreign_key "transactions", "users"
 end
